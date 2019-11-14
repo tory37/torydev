@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import * as sidebar from '@/store/modules/sidebar.js';
+import * as sidebar from '@/store/modules/sidebar.ts';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store({
+export default new Vuex.Store({
   modules: {
     sidebar
   }

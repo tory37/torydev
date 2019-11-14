@@ -6,7 +6,9 @@
         <MobileSidebarButton />
         <TwitterFeed />
       </div>
-      <slot />
+      <div class="content">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
@@ -23,6 +25,7 @@ export default {
 
 <style scoped lang="scss">
 .layout {
+  position: relative;
   width: 100%;
   height: 100%;
 
@@ -39,6 +42,10 @@ export default {
 
       display: flex;
       flex-direction: row;
+    }
+
+    .content {
+      overflow-y: scroll;
     }
   }
 }
