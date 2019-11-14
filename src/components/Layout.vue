@@ -38,13 +38,14 @@ export default {
     flex-direction: column;
 
     .top-bar {
-      height: 20px;
+      height: 30px;
 
       display: flex;
       flex-direction: row;
     }
 
     .content {
+      flex: 1;
       overflow-y: scroll;
     }
   }

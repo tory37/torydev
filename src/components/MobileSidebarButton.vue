@@ -1,17 +1,22 @@
 <template>
-  <div
-    class="mobile-sidebar-button"
-    :class="{ collapsed: isOpen }"
-    @click.prevent="openSidebar()"
-  >
-    <i class="fas fa-bars"></i>
+  <div class="mobile-sidebar-button">
+    <IconButton
+      @clicked="openSidebar()"
+      :iconClass="'fas fa-bars'"
+      :size="30"
+      :color="'blue'"
+    />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import IconButton from '@/components/IconButton';
 
 export default {
+  components: {
+    IconButton
+  },
   computed: mapState('sidebar', ['isOpen']),
   methods: mapActions('sidebar', ['openSidebar'])
 };
@@ -19,8 +24,8 @@ export default {
 
 <style scoped lang="scss">
 .mobile-sidebar-button {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background-color: darkblue;
 
   -webkit-transition: width $sidebar-open-speed; /* For Safari 3.1 to 6.0 */
