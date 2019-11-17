@@ -1,5 +1,10 @@
 <template>
-  <div id="app">
+  <div
+    id="app"
+    :style="{
+      backgroundImage: 'url(' + require('@/assets/background.jpg') + ')'
+    }"
+  >
     <Layout>
       <router-view />
     </Layout>
@@ -20,7 +25,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   height: 100vh;
 }
 
@@ -32,7 +37,7 @@ export default {
     color: #2c3e50;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: $color-links;
     }
   }
 }

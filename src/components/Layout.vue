@@ -1,53 +1,33 @@
 <template>
   <div class="layout">
-    <Sidebar />
-    <div class="right-col">
-      <div class="top-bar">
-        <MobileSidebarButton />
-        <TwitterFeed />
-      </div>
-      <div class="content">
-        <slot />
-      </div>
+    <div class="navbar-container">
+      <Navbar />
+      <MobileNav />
+    </div>
+    <div class="content-container">
+      <slot />
     </div>
   </div>
 </template>
 
 <script>
-import Sidebar from '@/components/Sidebar.vue';
-import MobileSidebarButton from '@/components/MobileSidebarButton.vue';
-import TwitterFeed from '@/components/TwitterFeed.vue';
+import Navbar from '@/components/Navbar.vue';
+import MobileNav from '@/components/MobileNav';
 
 export default {
-  components: { Sidebar, MobileSidebarButton, TwitterFeed }
+  components: { Navbar, MobileNav }
 };
 </script>
 
 <style scoped lang="scss">
 .layout {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  .navbar-container {
+    height: $navbar-height;
+  }
 
-  display: flex;
-  flex-direction: row;
-
-  .right-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-    .top-bar {
-      height: 30px;
-
-      display: flex;
-      flex-direction: row;
-    }
-
-    .content {
-      flex: 1;
-      overflow-y: scroll;
-    }
+  .content-container {
+    height: calc(100vh - #{$navbar-height});
+    overflow-y: scroll;
   }
 }
 </style>

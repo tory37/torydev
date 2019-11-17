@@ -1,18 +1,29 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img class="profile-pic" alt="Profile Pic" src="../assets/megadesk.jpg" />
+    <HomeContent />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import HomeContent from '@/components/HomeContent.vue';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
-    HelloWorld
+    HomeContent
   }
 };
 </script>
+
+<style scoped lang="scss">
+.profile-pic {
+  width: 80%;
+  //height: 30vh;
+
+  @media screen and (min-width: $ss-sm-min) {
+    width: 50%;
+  }
+}
+</style>
