@@ -21,6 +21,11 @@ export default {
 
 <style scoped lang="scss">
 .layout {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+
   .navbar-container {
     height: $navbar-height;
   }

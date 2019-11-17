@@ -19,11 +19,7 @@
         </a>
       </div>
       <div class="entry not-mobile">
-        <a
-          href="https://www.linkedin.com/in/toryhebert/"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://www.linkedin.com/in/toryhebert/" target="_blank" rel="noopener">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>

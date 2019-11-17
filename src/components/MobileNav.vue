@@ -83,6 +83,7 @@ export default {
     align-items: center;
     padding-right: 5px;
     box-sizing: border-box;
+    font-size: 18px;
   }
 
   .entry {
