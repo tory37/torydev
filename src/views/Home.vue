@@ -1,18 +1,17 @@
 <template>
   <div class="home">
-    <img class="profile-pic" alt="Profile Pic" src="../assets/megadesk.jpg" />
-    <HomeContent />
+    <HomeBanner />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HomeContent from '@/components/HomeContent.vue';
+import HomeBanner from '@/components/HomeBanner.vue';
 
 export default {
   name: 'home',
   components: {
-    HomeContent
+    HomeBanner
   }
 };
 </script>

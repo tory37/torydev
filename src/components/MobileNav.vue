@@ -6,15 +6,31 @@
       </div>
     </div>
     <div class="navigation">
-      <div class="nav entry" @click="closeSidebar()">
+      <div class="break"></div>
+      <div
+        class="nav entry"
+        :class="navIsSelectedClass('home')"
+        @click="closeSidebar()"
+      >
         <router-link :to="{ name: 'home' }">Home</router-link>
       </div>
-      <div class="nav entry" @click="closeSidebar()">
+      <div class="break"></div>
+      <div
+        class="nav entry"
+        :class="navIsSelectedClass('resume')"
+        @click="closeSidebar()"
+      >
         <router-link :to="{ name: 'resume' }">Resume</router-link>
       </div>
-      <div class="nav entry" @click="closeSidebar()">
+      <div class="break"></div>
+      <div
+        class="nav entry"
+        :class="navIsSelectedClass('portfolio')"
+        @click="closeSidebar()"
+      >
         <router-link :to="{ name: 'portfolio' }">Portfolio</router-link>
       </div>
+      <div class="break"></div>
     </div>
     <div class="links">
       <div class="entry">
@@ -23,7 +39,11 @@
         </a>
       </div>
       <div class="entry">
-        <a href="https://www.linkedin.com/in/toryhebert/" target="_blank" rel="noopener">
+        <a
+          href="https://www.linkedin.com/in/toryhebert/"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -38,13 +58,17 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import { isOnRoute } from '@/services/RouteHelper';
 
 export default {
   computed: {
     ...mapState('sidebar', ['isOpen'])
   },
   methods: {
-    ...mapActions('sidebar', ['closeSidebar'])
+    ...mapActions('sidebar', ['openSidebar', 'closeSidebar']),
+    navIsSelectedClass(nameToCheck) {
+      return isOnRoute(this.$route, nameToCheck) ? 'selected' : '';
+    }
   }
 };
 </script>
@@ -73,6 +97,11 @@ export default {
 
   &.open {
     right: 0;
+  }
+
+  .break {
+    width: 100%;
+    border-top: solid 1px $color-gray-light;
   }
 
   .close-row {
@@ -111,10 +140,15 @@ export default {
     width: 100%;
 
     .nav {
-      margin-right: 5px;
       font-size: 14px;
       width: 100%;
       margin-bottom: 5px;
+      margin-top: 5px;
+
+      &.selected {
+        text-decoration: underline;
+        font-weight: 600;
+      }
 
       a {
         color: white;
@@ -128,6 +162,7 @@ export default {
   .links {
     display: flex;
     align-items: center;
+    margin-top: 5px;
 
     .entry {
       width: $navbar-height;

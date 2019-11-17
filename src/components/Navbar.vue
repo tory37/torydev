@@ -1,14 +1,19 @@
 <template>
   <div class="navbar">
     <div class="navigation">
-      <div class="title entry">toryh.dev</div>
-      <div class="nav entry not-mobile">
+      <div class="title entry">
+        <router-link :to="{ name: 'home' }">toryh.dev</router-link>
+      </div>
+      <div class="nav entry not-mobile" :class="navIsSelectedClass('home')">
         <router-link :to="{ name: 'home' }">Home</router-link>
       </div>
-      <div class="nav entry not-mobile">
+      <div class="nav entry not-mobile" :class="navIsSelectedClass('resume')">
         <router-link :to="{ name: 'resume' }">Resume</router-link>
       </div>
-      <div class="nav entry not-mobile">
+      <div
+        class="nav entry not-mobile"
+        :class="navIsSelectedClass('portfolio')"
+      >
         <router-link :to="{ name: 'portfolio' }">Portfolio</router-link>
       </div>
     </div>
@@ -19,7 +24,11 @@
         </a>
       </div>
       <div class="entry not-mobile">
-        <a href="https://www.linkedin.com/in/toryhebert/" target="_blank" rel="noopener">
+        <a
+          href="https://www.linkedin.com/in/toryhebert/"
+          target="_blank"
+          rel="noopener"
+        >
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -40,9 +49,15 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { isOnRoute } from '@/services/RouteHelper';
 
 export default {
-  methods: mapActions('sidebar', ['openSidebar'])
+  methods: {
+    ...mapActions('sidebar', ['openSidebar']),
+    navIsSelectedClass(nameToCheck) {
+      return isOnRoute(this.$route, nameToCheck) ? 'selected' : '';
+    }
+  }
 };
 </script>
 
@@ -77,7 +92,7 @@ export default {
     }
 
     &.mobile {
-      @media screen and (min-width: $ss-md-min) {
+      @media screen and (min-width: $ss-sm-min) {
         display: none;
       }
     }
@@ -85,7 +100,7 @@ export default {
     &.not-mobile {
       display: none;
 
-      @media screen and (min-width: $ss-md-min) {
+      @media screen and (min-width: $ss-sm-min) {
         display: inherit;
       }
     }
@@ -108,11 +123,21 @@ export default {
       &:hover {
         font-weight: 600;
       }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
     }
 
     .nav {
       margin-right: 5px;
       font-size: 14px;
+
+      &.selected {
+        text-decoration: underline;
+        font-weight: 600;
+      }
 
       a {
         color: white;

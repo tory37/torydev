@@ -1,10 +1,5 @@
 <template>
-  <div
-    id="app"
-    :style="{
-      backgroundImage: 'url(' + require('@/assets/background.jpg') + ')'
-    }"
-  >
+  <div id="app">
     <Layout>
       <router-view />
     </Layout>
@@ -20,6 +15,16 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -27,6 +32,7 @@ export default {
   text-align: center;
   color: white;
   height: 100vh;
+  background-color: $color-gray-darker;
 }
 
 #nav {
