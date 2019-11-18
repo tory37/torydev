@@ -1,10 +1,10 @@
 <template>
-  <div>Resume coming soon...</div>
+  <div>Contact coming soon...</div>
 </template>
 
 <script>
 export default {
-  name: 'Resume'
+  name: 'Portfolio'
 };
 </script>
 
